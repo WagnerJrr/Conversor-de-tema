@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Switch de Tema</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.4s, color 0.4s;
+      background: #f0f0f0;
+      color: #111;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    #toggle {
+      display: none;
+    }
+
+    .switch {
+      width: 60px;
+      height: 30px;
+      background: #ccc;
+      display: inline-block;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .switch::after {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: 0.3s;
+    }
+
+    body:has(#toggle:checked) {
+      background: #111;
+      color: #f0f0f0;
+    }
+
+    body:has(#toggle:checked) .switch {
+      background: #555;
+    }
+
+    body:has(#toggle:checked) .switch::after {
+      transform: translateX(30px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <input type="checkbox" id="toggle" />
+    <label for="toggle" class="switch"></label>
+
+    <h1>Modo Claro / Escuro</h1>
+    <p>Este é um exemplo de troca de tema feita apenas com HTML e CSS.</p>
+  </div>
+</body>
+
+</html>
